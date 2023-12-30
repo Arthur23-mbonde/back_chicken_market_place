@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :categories
+  resources :races
+
   root "welcomes#index"
+
+  resources :farmers
 
   devise_for :users, path: 'users', controllers: { sessions: "users/sessions" }
 
