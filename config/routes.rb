@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  root "welcomes#index"
+
+  devise_for :users, path: 'users', controllers: { sessions: "users/sessions" }
+
   get 'welcome/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -8,6 +13,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  root "welcomes#index"
 
 end
