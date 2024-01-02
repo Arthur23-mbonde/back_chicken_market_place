@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_30_120124) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_30_211701) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -29,6 +29,20 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_30_120124) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_farmers_on_user_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.float "current_price"
+    t.string "disponibility"
+    t.text "evaluation"
+    t.bigint "race_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["race_id"], name: "index_products_on_race_id"
   end
 
   create_table "races", force: :cascade do |t|
@@ -64,4 +78,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_30_120124) do
   end
 
   add_foreign_key "farmers", "users"
+  add_foreign_key "products", "categories"
+  add_foreign_key "products", "races"
 end

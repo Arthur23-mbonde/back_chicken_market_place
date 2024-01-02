@@ -38,6 +38,7 @@ class RacesController < ApplicationController
   def update
     respond_to do |format|
       if @race.update(race_params)
+      #if @race.update_attributes(race_params) for the ActiveRecord association
         format.html { redirect_to race_url(@race), notice: "Race was successfully updated." }
         format.json { render :show, status: :ok, location: @race }
       else

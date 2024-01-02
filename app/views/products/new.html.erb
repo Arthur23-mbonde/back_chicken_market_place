@@ -1,0 +1,31 @@
+<h1>New product</h1>
+
+<h2 style="color:blue;"><b>Catégories</b></h2>
+<p>Voici les catégories de produits que vous pouvez stocker pour votre activité sur le site</p> 
+<div style="display:flex;color:blue;">
+  <% @categories.each do |category| %>
+    <div>
+      <%= category.id %><span>. </span>
+      <%= category.name %>
+    </div><pre>  </pre>
+  <% end %>
+</div>
+
+<h2 style="color:brown;"><b>Races</b></h2>
+<p>Voici les races de poulets que vous pouvez vous amener pour votre activité sur le site. <i>Nous vous prions de bien vouloir signaler si vous voudriez amener une nouvelle race de poulets</i> </p> 
+<div style="display:flex;color:brown;">
+  <% @races.each do |race| %>
+    <div>
+      <%= race.id %><span>. </span>
+      <%= race.name %>
+    </div><pre>  </pre>
+  <% end %>
+</div><br><br>
+
+<center><%= render "form", product: @product %></center>
+
+<br>
+
+<div>
+  <%= link_to "Back to products", products_path %>
+</div>

@@ -38,6 +38,7 @@ class CategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @category.update(category_params)
+      #if @category.update_attributes(category_params) for the ActiveRecord association
         format.html { redirect_to category_url(@category), notice: "Category was successfully updated." }
         format.json { render :show, status: :ok, location: @category }
       else
