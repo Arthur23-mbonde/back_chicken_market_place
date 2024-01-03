@@ -5,6 +5,13 @@
   </p>
 
   <p>
+    <i><%= product.name %></i>
+    <% product.pictures.each do |picture| %>
+      <%= image_tag(picture, style: "object-fit: contain; width:175px; height:175px;") %><strong> </strong>
+    <% end %>
+  </p>
+
+  <p>
     <strong>Description:</strong>
     <%= product.description %>
   </p>

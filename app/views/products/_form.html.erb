@@ -47,6 +47,11 @@
   </div><br/>
 
   <div>
+    <%= form.label :pictures, "Joindre des photos", style: "display: block" %>
+    <%= form.file_field :pictures, multiple:true %>
+  </div><br/>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

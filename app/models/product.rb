@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
 
+  has_many_attached :pictures
+
   belongs_to :race
   belongs_to :category
 

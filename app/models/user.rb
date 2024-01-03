@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 
+  has_one_attached :photo
+
   has_one :farmer, dependent: :destroy
 
   # Include default devise modules. Others available are:
