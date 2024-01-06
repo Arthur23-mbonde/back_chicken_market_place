@@ -1,0 +1,70 @@
+<% @cart.cart_products.each do |cart_product| %>
+
+    <% product = cart_product.product %>
+    <div id="<%= "cart-#{product.id}" %>">
+
+        <div style="display:flex;justify-contain:space-between;margin: 0em 5em;">
+            <p>
+            <strong>Name:</strong>
+            <%= product.name %>
+            </p>
+
+            <p>
+            <i><%= product.name %></i>
+            <% product.pictures.each do |picture| %>
+                <%= image_tag(picture, style: "object-fit: contain; width:50px; height:50px;") %><strong> </strong>
+            <% end %>
+            </p>
+
+            <p>
+            <strong>Description:</strong>
+            <%= product.description %>
+            </p>
+
+            <p>
+            <strong>Current price:</strong>
+            <%= product.current_price %>
+            </p>
+
+            <p>
+            <strong>Disponibility:</strong>
+            <%= product.disponibility %>
+            </p>
+
+            <p>
+            <strong>Evaluation:</strong>
+            <%= product.evaluation %>
+            </p>
+
+            <p>
+            <strong>Race:</strong>
+            <%= product.race_id %><span>. </span>
+            <%= product.race.name %>
+            </span>
+
+            <p>
+            <strong>Category:</strong>
+            <%= product.category_id %><span>. </span>
+            <%= product.category.name %>
+            </p>
+
+            <%= form_with(url: cart_add_path) do |f| %>
+                <%= f.hidden_field :id, value: product.id %>
+                <%= f.number_field :rate, value: cart_product.rate, min: 0 %>
+                <%= f.submit "Ajouter" %>
+            <% end %>
+
+            <%= form_with(url: cart_remove_path) do |f| %>
+                <%= f.hidden_field :id, value: cart_product.id %>
+                <%= f.submit "Enlever" %>
+            <% end %>
+
+            <strong>Total : </strong>
+            <%= cart_product.total %>
+
+        </div>
+
+    </div>
+
+
+<% end %>

@@ -1,0 +1,6 @@
+<h1>Votre panier d'achat</h1>
+<p>Le prix total du panier est <%= @cart.total %> FCFA</p>
+<% @cart.cart_products.each do |cart_product| %>
+    <% product = cart_product.product %>
+    <p><%= product.name %> * <%= cart_product.rate %> = <%= product.current_price * cart_product.rate %> FCFA</p>
+<% end %>
