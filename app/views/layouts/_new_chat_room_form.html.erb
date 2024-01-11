@@ -1,0 +1,4 @@
+<%= form_with(model: @room, remote: true, class:'d-flex') do |f| %>
+    <%= f.text_field :title, class:"form-control", autocomplete: "off" %>
+    <%= f.submit "Ajouter un salon de discussion", data: { disable_with: false } %>
+<% end %>
