@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
 
   # Define the resources for chat_rooms
   resources :chat_rooms do
