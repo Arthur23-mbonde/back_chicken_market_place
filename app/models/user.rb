@@ -27,7 +27,15 @@ class User < ApplicationRecord
 
   def photo_thumbnail
     if photo.attached?
-      photo.variant(resize: "150x150!").processed
+      photo.variant(resize: "150x150!") # We have to use photo.variant(resize: "150x150!").processed if redis server run well
+    else
+      "/default_photo.png"
+    end
+  end
+
+  def chat_room_photo
+    if photo.attached?
+      photo.variant(resize: "50x50!") # We have to use photo.variant(resize: "50x50!").processed if redis server run well
     else
       "/default_photo.png"
     end

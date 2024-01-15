@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   resources :farmers
 
-  devise_for :users, path: 'users', controllers: { sessions: "users/sessions" }
+  devise_for :users, path: 'users', controllers: { sessions: "users/sessions", registrations: "users/registrations" }
 
   devise_scope :user do
     get 'users', to: 'devise/sessions#new'

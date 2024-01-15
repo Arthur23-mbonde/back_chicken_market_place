@@ -21,4 +21,9 @@ class ChatRoom < ApplicationRecord
     single_chat_room
   end
 
+  def participant?(chat_room, user)
+    chat_room.participants.where(user: user).exists?
+    Participant.where(user_id: user.id, chat_room_id: chat_room.id).exists?
+  end
+
 end
