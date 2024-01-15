@@ -87,6 +87,14 @@ body {
     margin-right: 10px;
 }
 
+.user_pfp {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+
 .user_list_item {
     height: 55px;
     background-color: #343a40 !important;
