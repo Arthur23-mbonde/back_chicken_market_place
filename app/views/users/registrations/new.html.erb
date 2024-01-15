@@ -4,6 +4,14 @@
   <%= render "users/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <% if resource.photo.attached? %>
+      <%= image_tag(resource.photo) %>
+    <% else %>
+      <%= image_tag("/default_photo.png") %>
+    <% end %>
+  </div>
+
+  <div class="field">
     <%= f.label :role, "Veuillez indiquer le role que vous desirez avoir dans la plateforme" %><br />
     <%= f.text_field :role, autofocus: true, placeholder: "Eleveur / Client" %>
   </div>
