@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   resources :races
 
   root "welcomes#index"
+  get 'farmer', to: 'welcomes#farmer'
+  get 'client', to: 'welcomes#client'
 
   resources :farmers
 

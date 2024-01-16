@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Chicken Market Place</a>
+    <%= link_to "Chicken Market Place", root_path, class:"navbar-brand" %>
     <% if current_user %>
 
       <%= image_tag(current_user.photo, style:"object-fit :contain; width:25px;height:25px;border-radius:50%;") %>

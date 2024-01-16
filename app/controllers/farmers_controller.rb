@@ -6,8 +6,10 @@ class FarmersController < ApplicationController
   def index
 
     # For current_user we'll do, if we want :
-    @farmers = current_user.farmer
-    @farmers = Farmer.all
+    if current_user && current_user.role == "Eleveur"
+      @farmers = current_user.farmer
+      @farmers = Farmer.all
+    end
 
   end
 

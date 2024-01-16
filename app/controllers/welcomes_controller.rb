@@ -6,6 +6,14 @@ class WelcomesController < ApplicationController
     @users = User.all
   end
 
+  def farmer
+    @users = User.all
+  end
+
+  def client
+    @users = User.all
+  end
+
   private
 
   def set_status

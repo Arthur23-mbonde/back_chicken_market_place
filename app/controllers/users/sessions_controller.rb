@@ -16,7 +16,7 @@ class Users::SessionsController < Devise::SessionsController
   # DELETE /resource/sign_out
   def destroy
 
-    ActionCable.server.remote_conversations.where(current_user: current_user).disconnect
+    ActionCable.server.remote_connections.where(current_user: current_user).disconnect
     current_user.update(status: User.statuses[:offline])
     super
 
