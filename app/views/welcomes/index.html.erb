@@ -9,7 +9,9 @@
         <div>
             <%= link_to "Shopping page", farmers_path, class: "btn btn-primary" %><br/><br/>
             <%= link_to "Mon panier d'achat", cart_path, class: "btn btn-success" %><br/><br/>
-            <%= link_to "Produits disponibles", products_path, class: "btn btn-primary" %>
+            <%= link_to "Produits disponibles", products_path, class: "btn btn-primary" %><br/><br/>
+            <h5><%= link_to "Les catégories de produits que vous pouvez trouver chez Chicken Market Place", categories_path, class: "nav-link" %></h5>
+            <h5><%= link_to "Les races de poulets que vous pouvez trouver chez Chicken Market Plae", races_path, class: "nav-link" %></h5>
         </div>
     <% elsif current_user && current_user.role == "Client" %>
         <div>
@@ -19,12 +21,16 @@
         </div><br/><br/>
         <div>
             <%= link_to "Mon panier d'achat", cart_path, class: "btn btn-success" %><br/><br/>
-            <%= link_to "Produits disponibles", products_path, class: "btn btn-primary" %>
+            <%= link_to "Produits disponibles", products_path, class: "btn btn-primary" %><br><br/>
+            <h5><%= link_to "Les catégories de produits que vous pouvez trouver chez Chicken Market Place", categories_path, class: "nav-link" %></h5>
+            <h5><%= link_to "Les races de poulets que vous pouvez trouver chez Chicken Market Plae", races_path, class: "nav-link" %></h5>
         </div>
     <% else %>
         <div>
             <%= link_to "Panier d'achat", cart_path, class: "btn btn-success" %><br/><br/>
-            <%= link_to "Produits disponibles", products_path, class: "btn btn-primary" %>
+            <%= link_to "Produits disponibles", products_path, class: "btn btn-primary" %><br/><br/>
+            <h5><%= link_to "Les catégories de produits que vous pouvez trouver chez Chicken Market Place", categories_path, class: "nav-link" %></h5>
+            <h5><%= link_to "Les races de poulets que vous pouvez trouver chez Chicken Market Plae", races_path, class: "nav-link" %></h5>
         </div>
     <% end %>
 

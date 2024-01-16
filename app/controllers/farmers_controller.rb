@@ -9,6 +9,8 @@ class FarmersController < ApplicationController
     if current_user && current_user.role == "Eleveur"
       @farmers = current_user.farmer
       @farmers = Farmer.all
+    else
+      redirect_to root_path
     end
 
   end
