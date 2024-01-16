@@ -1,6 +1,7 @@
 class ChatRoomsController < ApplicationController
 
   before_action :authenticate_user!
+  before_action :set_status
 
   def index
 
@@ -29,6 +30,12 @@ class ChatRoomsController < ApplicationController
 
   def create
     @chat_room = ChatRoom.create(title: params['title'])
+  end
+
+  private
+
+  def set_status
+    current_user.update!(status: User.statuses[:online]) if current_user
   end
 
 end
