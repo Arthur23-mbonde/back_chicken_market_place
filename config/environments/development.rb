@@ -78,4 +78,14 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+  # Configure SMTP and MailCatcher
+  config.action_mailer.delivery_method = :smtp
+  # SMTP settings for mailcatcher gem
+  config.action_mailer.smtp_settings = {
+    address: '127.0.0.1',
+    port: 1025,
+  }
+
+  config.action_mailer.raise_delivery_errors = false
+
 end
