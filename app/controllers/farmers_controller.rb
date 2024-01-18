@@ -9,6 +9,8 @@ class FarmersController < ApplicationController
     if current_user && current_user.role == "Eleveur"
       @farmers = current_user.farmer
       @farmers = Farmer.all
+
+    # If user's logged in and is a buyer, render home page for buyer
     else
       redirect_to root_path
     end
