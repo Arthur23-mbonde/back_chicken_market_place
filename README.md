@@ -2,8 +2,10 @@
 
 BREVE PRESENTATION DES ROUTES
 
-Le chemin pour la home page est : root "welcomes#index" => Au démarrage du site, valables pour les utilisateurs non connectés (ou des simples visiteurs) 
+Le chemin pour la home page est : root "welcomes#index" => Au démarrage du site, valables pour les utilisateurs non connectés (ou des simples visiteurs)
+
 Les utilisateurs inscrits et connectés en tant qu'éleveurs trouveront leur home page à travers ce chemin : get 'farmer', to: 'welcomes#farmer'
+
 Les utilisateurs inscrits et connectés en tant que clients trouveront leur home page à travers ce chemin : get 'client', to: 'welcomes#client'
 
 Ouvrir le fichier app/config/routes.rb pour avoir plus d'informations sur les routes.
@@ -11,18 +13,29 @@ Ouvrir le fichier app/config/routes.rb pour avoir plus d'informations sur les ro
 
 LE CONTENU ACTUEL DU FICHIER DE MIGRATION (Les tables disponibles présentement en base de données)
 
-[back_chicken_market_place](db/migrate/20231229145140_devise_create_users.rb)
-[back_chicken_market_place](db/migrate/20231230110405_create_farmers.rb) 
-[back_chicken_market_place](db/migrate/20231230120029_create_races.rb) 
-[back_chicken_market_place](db/migrate/20231230120124_create_categories.rb) 
-[back_chicken_market_place](db/migrate/20231230211701_create_products.rb) 
-[back_chicken_market_place](db/migrate/20240103151811_create_active_storage_tables.active_storage.rb)
-[back_chicken_market_place](db/migrate/20240106121359_create_carts.rb) 
-[back_chicken_market_place](db/migrate/20240106121639_create_cart_products.rb) 
-[back_chicken_market_place](db/migrate/20240109201830_create_chat_rooms.rb) 
-[back_chicken_market_place](db/migrate/20240110010739_create_messages.rb) 
-[back_chicken_market_place](db/migrate/20240112002525_create_participants.rb) 
-[back_chicken_market_place](db/migrate/20240116023639_add_status_to_users.rb)
+[back_chicken_market_place](db/migrate/20231229145140_devise_create_users.rb) => Table users
+
+[back_chicken_market_place](db/migrate/20231230110405_create_farmers.rb) => Table farmers
+
+[back_chicken_market_place](db/migrate/20231230120029_create_races.rb) => Table races
+
+[back_chicken_market_place](db/migrate/20231230120124_create_categories.rb) => Table categories
+
+[back_chicken_market_place](db/migrate/20231230211701_create_products.rb) => Table products
+
+[back_chicken_market_place](db/migrate/20240103151811_create_active_storage_tables.active_storage.rb) => Table de migrations pour active_storage
+
+[back_chicken_market_place](db/migrate/20240106121359_create_carts.rb) => Table carts
+
+[back_chicken_market_place](db/migrate/20240106121639_create_cart_products.rb) => Table cart_products
+
+[back_chicken_market_place](db/migrate/20240109201830_create_chat_rooms.rb) => Table chat_rooms
+
+[back_chicken_market_place](db/migrate/20240110010739_create_messages.rb) => Table messages
+
+[back_chicken_market_place](db/migrate/20240112002525_create_participants.rb) => Table participants
+
+[back_chicken_market_place](db/migrate/20240116023639_add_status_to_users.rb)  => Migration d'ajout de la colonne status à la table users
 
 
 PRESENTATION DES TABLES DU MODELE REPONDANT AUX BESOINS DE L'APPLICATION
