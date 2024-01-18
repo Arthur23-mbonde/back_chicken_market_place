@@ -19,6 +19,7 @@ class ApplicationController < ActionController::Base
     if @cart.nil?
       @cart = Cart.create
       session[:cart_id] = @cart.id
+      #@cart.save or #session[:cart_id].save
     end
 
   end

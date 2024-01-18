@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
 
+  # Active_record associations
+
   has_many_attached :pictures
 
   has_many :cart_products
@@ -8,6 +10,9 @@ class Product < ApplicationRecord
   belongs_to :race
   belongs_to :category
 
+  ###
+
+  # validate product's parameters
   validates :name, presence: true
   validates :description, presence: true
   validates :current_price, presence: true

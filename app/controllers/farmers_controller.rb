@@ -5,7 +5,7 @@ class FarmersController < ApplicationController
   # GET /farmers or /farmers.json
   def index
 
-    # For current_user we'll do, if we want :
+    # If user's logged in and is a breeder, render index page for farmers
     if current_user && current_user.role == "Eleveur"
       @farmers = current_user.farmer
       @farmers = Farmer.all
