@@ -1,9 +1,15 @@
 class Message < ApplicationRecord
 
+  # Active_record associations
+
   belongs_to :user
   belongs_to :chat_room
 
+  ###
+
   after_create_commit { broadcast_append_to chat_room }
+
+  # Confirm a participant before start private discussions (private chat room)
   before_create :confirm_participant
 
   def confirm_participant

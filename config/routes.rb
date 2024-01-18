@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+  # Routes for the differents home pages
+  root "welcomes#index"
+  get 'farmer', to: 'welcomes#farmer'
+  get 'client', to: 'welcomes#client'
+
   get 'users/show'
 
   # Define the resources for chat_rooms
@@ -6,19 +12,20 @@ Rails.application.routes.draw do
     resources :messages
   end
 
+  # It sets main informations about the user's shopping cart
   get 'cart', to: 'cart#show'
   #get 'cart/add', to: 'cart#add'
+
+  # For adding a product in the shopping cart
   post 'cart/add'
+
+  # For removing a product in the shopping cart
   post 'cart/remove'
 
   resources :products
 
   resources :categories
   resources :races
-
-  root "welcomes#index"
-  get 'farmer', to: 'welcomes#farmer'
-  get 'client', to: 'welcomes#client'
 
   resources :farmers
 
@@ -31,6 +38,7 @@ Rails.application.routes.draw do
   get 'user/:id', to: 'users#show', as: 'user'
 
   get 'welcome/index'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

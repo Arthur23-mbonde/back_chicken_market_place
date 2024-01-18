@@ -1,10 +1,15 @@
 class User < ApplicationRecord
 
+  # Active_record associations
+
   has_one_attached :photo
 
   has_one :farmer, dependent: :destroy
   has_many :messages
 
+  ####
+
+  # Validate custom parameters (or fields) for user
   validates :role, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -25,10 +30,13 @@ class User < ApplicationRecord
   after_create_commit { broadcast_append_to "users" }
   after_update_commit { broadcast_update }
 
+  # Set default avatar after validate a registration when an user signs up or updates his profile without giving an image field in the file_field for the profile picture in the new or edit forms
   after_commit :add_default_photo, on: %i[create update]
 
+  # Enum the statuses of users : offline, away or online
   enum status: %i[offline away online]
 
+  #Specify the default profile picture in the user's space
   def photo_thumbnail
     if photo.attached?
       photo.variant(resize: "150x150!") # We have to use photo.variant(resize: "150x150!").processed if redis server run well
@@ -37,6 +45,7 @@ class User < ApplicationRecord
     end
   end
 
+  # Specify the default profile picture in the chat's spaces
   def chat_room_photo
     if photo.attached?
       photo.variant(resize: "50x50!") # We have to use photo.variant(resize: "50x50!").processed if redis server run well
@@ -65,6 +74,8 @@ class User < ApplicationRecord
   end
 
   private
+
+  # Define the default profile picture
   def add_default_photo
 
     unless photo.attached?

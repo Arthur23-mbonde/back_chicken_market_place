@@ -14,14 +14,19 @@ class ChatRoomsController < ApplicationController
   end
 
   def show
+
+    # Find a private chat room
     @single_chat_room = ChatRoom.find(params[:id])
 
+    # Define and fix a public chat room
     @chat_room = ChatRoom.new
     @chat_rooms = ChatRoom.public_chat_rooms
 
+    # Define and fix messages in the chat room
     @message = Message.new
     @messages = @single_chat_room.messages.order(created_at: :asc)
 
+    # All users except the current user
     @users = User.all_except(current_user)
 
     render 'index'
